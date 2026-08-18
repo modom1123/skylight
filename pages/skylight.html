@@ -33,6 +33,48 @@
   .masthead h1{font-size:clamp(26px,4vw,38px);margin-top:8px;color:var(--sky-deep);}
   .masthead p{margin-top:10px;color:var(--ink-soft);max-width:76ch;font-size:16px;}
 
+  .masthead-sub{font-size:14px;color:var(--ink-faint);margin-top:6px;}
+  .masthead-sub a{color:var(--sky-deep);}
+  .masthead h1{font-size:clamp(24px,3.6vw,34px);margin-top:6px;color:var(--sky-deep);}
+
+  /* thesis strip */
+  .thesis{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;}
+  .thesis-half{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 22px;}
+  .thesis-half.accent{background:var(--sky-soft);border-color:var(--sky);}
+  .th-label{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 8px;}
+  .th-body{font-size:15px;color:var(--ink-soft);margin:0;line-height:1.6;}
+  .th-body strong{color:var(--ink);}
+  .th-ticks{margin-top:12px;display:flex;flex-direction:column;gap:5px;}
+  .th-ticks span{font-size:13px;font-weight:700;color:var(--ink-soft);}
+  .th-ticks span b{color:var(--sky-deep);}
+
+  /* MLP row */
+  .mlp-row{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px 22px;margin-bottom:16px;}
+  .mlp-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+  .mlp-chip{font-size:13px;font-weight:700;color:var(--sky-deep);background:var(--sky-soft);border:1px solid var(--sky);padding:6px 13px;border-radius:999px;}
+  .mlp-chip.sage{color:var(--sage-deep);background:var(--sage-soft);border-color:var(--sage);}
+  .mlp-chip.gold{color:var(--marigold-deep);background:var(--marigold-soft);border-color:var(--marigold);}
+
+  /* try this bar */
+  .try-bar{background:var(--sky-soft);border:1px solid var(--sky);border-radius:16px;padding:16px 20px;margin-bottom:18px;}
+  .try-label{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--sky-deep);margin:0 0 11px;}
+  .try-steps{display:flex;gap:10px;flex-wrap:wrap;}
+  .try-step{flex:1;min-width:160px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:11px 13px;display:flex;align-items:flex-start;gap:9px;}
+  .try-n{width:22px;height:22px;border-radius:50%;background:var(--sky);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none;}
+  .try-txt{font-size:12.5px;color:var(--ink-soft);line-height:1.45;}
+  .try-txt strong{color:var(--ink);display:block;margin-bottom:2px;}
+
+  /* proves section */
+  .proves{margin-top:20px;}
+  .proves-label{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 12px;}
+  .proves-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:16px;}
+  .proves-cell{background:var(--panel);padding:16px 18px;}
+  .proves-cell h4{font-size:14px;font-weight:700;color:var(--sky-deep);margin:0 0 4px;}
+  .proves-cell p{font-size:13px;color:var(--ink-soft);margin:0;line-height:1.5;}
+  .kpi-row{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px 22px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+  .kpi-label{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-right:4px;}
+  .kpi-chip{font-size:12.5px;font-weight:700;color:var(--sage-deep);background:var(--sage-soft);border:1px solid var(--sage);padding:5px 11px;border-radius:999px;}
+
   .stage{background:linear-gradient(180deg,var(--sky-soft),var(--panel) 70%);border:1px solid var(--line);border-radius:24px;padding:40px 26px 30px;box-shadow:var(--shadow-soft);}
   .lineup{display:flex;align-items:flex-end;justify-content:center;gap:clamp(22px,3.5vw,48px);flex-wrap:wrap;}
   .dev{display:flex;flex-direction:column;align-items:center;position:relative;}
@@ -154,9 +196,10 @@
 
   /* ===== Buddy Sr (matches real Buddy) ===== */
   .buddy-unit{display:flex;flex-direction:column;align-items:center;}
+  .buddy-wrap-outer{position:relative;padding-top:16px;}
   /* Buddy Sr — wide landscape rectangle matching real Buddy proportions (~16:10) */
   .buddy{position:relative;width:320px;height:210px;background:var(--buddy);border-radius:32px / 36px;padding:14px 16px 14px;box-shadow:var(--shadow);}
-  .buddy-dome{position:absolute;top:-13px;right:72px;width:44px;height:30px;background:var(--buddy-dome);border-radius:50% 50% 44% 44% / 58% 58% 42% 42%;box-shadow:inset 0 -3px 5px rgba(0,0,0,.08),var(--shadow-soft);}
+  .buddy-dome{position:absolute;top:-13px;right:72px;width:44px;height:30px;background:var(--buddy-dome);border-radius:50% 50% 44% 44% / 58% 58% 42% 42%;box-shadow:inset 0 -3px 5px rgba(0,0,0,.08),var(--shadow-soft);z-index:2;}
   .buddy-ctrls{position:absolute;top:10px;left:28px;display:flex;gap:5px;align-items:center;}
   .buddy-ctrls i{width:14px;height:5px;border-radius:3px;background:rgba(255,255,255,.55);}
   .buddy-ctrls i.dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.4);}
@@ -184,6 +227,25 @@
   .call{width:100%;margin-top:7px;font-size:12px;font-weight:800;padding:9px;border-radius:10px;background:var(--sky-soft);border:2px solid var(--sky-soft);color:var(--sky-deep);display:flex;align-items:center;justify-content:center;gap:6px;}
   .call:hover{border-color:var(--sky);}
   .buddy-base{width:130px;height:14px;background:var(--buddy-base);border-radius:0 0 10px 10px;box-shadow:var(--shadow-soft);}
+  .qr-modal-inner{text-align:center;padding:22px 24px 20px;}
+  .qr-modal-inner h3{font-size:18px;margin-bottom:4px;color:var(--sky-deep);}
+  .qr-modal-inner p{font-size:13px;color:var(--ink-soft);margin-bottom:18px;}
+  .qr-box{background:#fff;border:1px solid var(--line);border-radius:12px;display:inline-block;padding:12px;margin-bottom:14px;}
+  .qr-box svg{display:block;width:140px;height:140px;}
+  .qr-close{width:100%;background:var(--sky);color:#fff;font-weight:800;font-size:15px;padding:13px;border-radius:12px;}
+  /* Find My feature */
+  .findmy{background:var(--sky-soft);border:2px solid var(--sky);border-radius:11px;padding:8px 9px;margin-top:7px;cursor:pointer;transition:background .15s ease;}
+  .findmy:hover{background:#dae7fa;}
+  .findmy .fm-top{display:flex;align-items:center;gap:6px;margin-bottom:5px;}
+  .findmy .fm-icon{font-size:14px;}
+  .findmy .fm-title{font-size:11.5px;font-weight:800;color:var(--sky-deep);}
+  .findmy .fm-sub{font-size:10px;color:var(--ink-soft);font-weight:600;line-height:1.3;}
+  /* Find My modal */
+  .findmy-body .item-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
+  .item-chip{font-size:13px;font-weight:700;padding:8px 13px;border-radius:999px;border:2px solid var(--line);background:var(--card);color:var(--ink-soft);cursor:pointer;transition:all .15s ease;}
+  .item-chip.on{border-color:var(--sky);background:var(--sky-soft);color:var(--sky-deep);}
+  .last-seen{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:18px;font-size:13.5px;color:var(--ink-soft);}
+  .last-seen strong{color:var(--ink);display:block;margin-bottom:3px;}
 
   /* toasts */
   .toast{background:var(--sky-deep);color:#fff;border-radius:10px;padding:9px 11px;font-size:11.5px;font-weight:700;box-shadow:var(--shadow);display:flex;gap:7px;align-items:flex-start;transform:scale(.9);opacity:0;animation:bloom .35s ease forwards;}
@@ -245,7 +307,12 @@
   .reset button:hover{border-color:var(--sky);}
   :focus-visible{outline:3px solid var(--sky);outline-offset:2px;}
 
-  @media (max-width:820px){.lineup{gap:32px;}.cal-frame{width:100%;max-width:520px;}}
+  @media (max-width:820px){
+    .lineup{gap:32px;}.cal-frame{width:100%;max-width:520px;}
+    .thesis{grid-template-columns:1fr;}
+    .proves-row{grid-template-columns:1fr;}
+    .try-steps{flex-direction:column;}
+  }
   @media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important;}}
 </style>
 </head>
@@ -255,7 +322,49 @@
   <div class="masthead">
     <p class="kicker">Buddy Sr · a working prototype</p>
     <h1>Mema's Day — the Family OS, grown up</h1>
-    <p>Three real Skylight surfaces at true scale. Mema taps <b>I'm up</b> on Buddy Sr; the family sees it on the Calendar and logs their visits from the app — and every action ripples across all three in real time. Tap around: open Mema's day from the calendar, log a visit on the phone, or send a ride request from her Tuesday appointment.</p>
+    <p class="masthead-sub">Built by Mallory Odom · <a href="index.html">Skylight proposal</a> · not affiliated with Skylight</p>
+  </div>
+
+  <div class="thesis">
+    <div class="thesis-half">
+      <p class="th-label">The insight</p>
+      <p class="th-body">The Frame is <strong>already sitting in mom's living room</strong>. The family bought it to stay connected. Buddy showed the OS could grow to serve the youngest end of the family. Growing it to serve the oldest end is the move hiding in plain sight — and Skylight already has everything it needs to build it.</p>
+      <div class="th-ticks">
+        <span><b>✓</b> The buyer is the same person already running the Calendar</span>
+        <span><b>✓</b> Mom wants independence. The family wants peace of mind. They're on the same side.</span>
+        <span><b>✓</b> The tools that exist today — Life360, Alexa Together, generic caregiver apps — treat aging parents like a problem to monitor. Skylight treats families like people to connect.</span>
+        <span><b>✓</b> Radical simplicity is already Skylight's superpower. Older adults are the audience that rewards it most.</span>
+      </div>
+    </div>
+    <div class="thesis-half accent">
+      <p class="th-label">Why this one, from me</p>
+      <p class="th-body">This isn't a market abstraction. I've watched people I love work to hold onto their independence, and watched the family quietly carry the worry — and the tools that might have helped were never simple enough to actually get used. That gap, lived firsthand, is why I'd build this before anything else on the roadmap.</p>
+    </div>
+  </div>
+
+  <div class="mlp-row">
+    <p class="th-label" style="margin:0 0 0;">What v1 would actually do</p>
+    <div class="mlp-chips">
+      <span class="mlp-chip sage">☀️ "I'm up" check-in</span>
+      <span class="mlp-chip sage">💊 Giant-type tasks</span>
+      <span class="mlp-chip sage">📞 One-tap family call</span>
+      <span class="mlp-chip gold">🚗 Assign a need</span>
+      <span class="mlp-chip gold">📋 Visit log</span>
+      <span class="mlp-chip">🔔 Multi-channel notify</span>
+      <span class="mlp-chip">🔍 Find My</span>
+      <span class="mlp-chip">🔄 Real-time cross-surface sync</span>
+    </div>
+  </div>
+
+  <div class="try-bar">
+    <p class="try-label">Try it — here's where to tap</p>
+    <div class="try-steps">
+      <div class="try-step"><span class="try-n">1</span><div class="try-txt"><strong>Buddy Sr → "I'm up"</strong>Tap. Watch it ripple to the Calendar and phone instantly.</div></div>
+      <div class="try-step"><span class="try-n">2</span><div class="try-txt"><strong>Calendar → Mema's profile</strong>Opens her day view from the week grid.</div></div>
+      <div class="try-step"><span class="try-n">3</span><div class="try-txt"><strong>Phone → log a visit</strong>Rate the visit, pick what you did, save.</div></div>
+      <div class="try-step"><span class="try-n">4</span><div class="try-txt"><strong>Calendar → Ask family</strong>Tap the Tuesday appointment. Pick who, pick channels.</div></div>
+      <div class="try-step"><span class="try-n">5</span><div class="try-txt"><strong>Buddy Sr → Find My</strong>Tap the tile. Pick the missing item. Send to the care team.</div></div>
+    </div>
   </div>
 
   <div class="stage">
@@ -363,23 +472,33 @@
       <!-- BUDDY SR -->
       <div class="dev">
         <div class="buddy-unit">
-          <div class="buddy">
-            <div class="buddy-dome"></div>
-            <div class="buddy-ctrls"><i></i><i></i><i class="dot"></i></div>
-            <div class="buddy-screen">
-              <div class="b-topbar"><div class="b-ava">M</div><div class="b-time">9:12 AM · Sun, Jun 8</div><div class="b-wx">72° ☀️</div></div>
-              <div class="buddy-greet">Good morning, Mema 🌷</div>
-              <div class="buddy-checkin" id="memaCheckin">
-                <button class="imup" id="imUpBtn">☀️ I'm up</button>
+          <div class="buddy-wrap-outer">
+            <div class="buddy">
+              <div class="buddy-dome"></div>
+              <div class="buddy-ctrls"><i></i><i></i><i class="dot"></i></div>
+              <div class="buddy-screen">
+                <div class="b-topbar"><div class="b-ava">M</div><div class="b-time">9:12 AM · Sun, Jun 8</div><div class="b-wx">72° ☀️</div></div>
+                <div class="buddy-greet">Good morning, Mema 🌷</div>
+                <div class="buddy-checkin" id="memaCheckin">
+                  <button class="imup" id="imUpBtn">☀️ I'm up</button>
+                </div>
+                <h4 class="blk">Today</h4>
+                <div id="memaTasks">
+                  <div class="task" data-task="pills"><div class="tick">✓</div><div class="tbody"><div class="tname">Morning pills</div><div class="ttime">8:00 AM</div></div></div>
+                  <div class="task" data-task="lunch"><div class="tick">✓</div><div class="tbody"><div class="tname">Lunch — soup</div><div class="ttime">12:30 PM</div></div></div>
+                  <div class="task" data-task="walk"><div class="tick">✓</div><div class="tbody"><div class="tname">Walk w/ Biscuit</div><div class="ttime">3:00 PM</div></div></div>
+                  <div class="task flag" data-task="appt"><div class="tick">✓</div><div class="tbody"><div class="tname">Dr. Nguyen</div><div class="ttime">Tue, 2:00 PM</div></div><div class="badge">ride</div></div>
+                </div>
+                <button class="call">📞 Call Sarah</button>
+                <div class="findmy" id="findMyBtn">
+                  <div class="fm-top"><span class="fm-icon">🔍</span><span class="fm-title">Find My</span></div>
+                  <div class="fm-sub">Can't find something? Ask the care team.</div>
+                </div>
+                <div class="findmy" id="qrTile" style="background:var(--lagoon-soft);border-color:var(--lagoon);margin-top:7px;">
+                  <div class="fm-top"><span class="fm-icon">📲</span><span class="fm-title" style="color:var(--lagoon);">Get the app</span></div>
+                  <div class="fm-sub">Scan to download Skylight on your phone.</div>
+                </div>
               </div>
-              <h4 class="blk">Today</h4>
-              <div id="memaTasks">
-                <div class="task" data-task="pills"><div class="tick">✓</div><div class="tbody"><div class="tname">Morning pills</div><div class="ttime">8:00 AM</div></div></div>
-                <div class="task" data-task="lunch"><div class="tick">✓</div><div class="tbody"><div class="tname">Lunch — soup</div><div class="ttime">12:30 PM</div></div></div>
-                <div class="task" data-task="walk"><div class="tick">✓</div><div class="tbody"><div class="tname">Walk w/ Biscuit</div><div class="ttime">3:00 PM</div></div></div>
-                <div class="task flag" data-task="appt"><div class="tick">✓</div><div class="tbody"><div class="tname">Dr. Nguyen</div><div class="ttime">Tue, 2:00 PM</div></div><div class="badge">ride</div></div>
-              </div>
-              <button class="call">📞 Call Sarah</button>
             </div>
           </div>
           <div class="buddy-base"></div>
@@ -392,7 +511,105 @@
   </div>
 
   <div class="reset"><button id="resetBtn">↺ Reset the day</button></div>
+
+  <div class="proves">
+    <p class="proves-label">What this shows</p>
+    <div class="proves-row">
+      <div class="proves-cell"><h4>Software-first</h4><p>Same Buddy body, same Skylight rails — no new hardware required to validate the concept.</p></div>
+      <div class="proves-cell"><h4>Cross-surface sync</h4><p>One action on any device updates all three simultaneously. The Family OS thesis, made literal.</p></div>
+      <div class="proves-cell"><h4>Dignity, not surveillance</h4><p>Mema drives her own day. The family gets visibility without it feeling like monitoring.</p></div>
+      <div class="proves-cell"><h4>Distributed care</h4><p>Assign-a-need spreads the load across the family instead of defaulting it to one person.</p></div>
+      <div class="proves-cell"><h4>Multi-channel by design</h4><p>Not every family member uses the same channel — so the OS doesn't assume they do.</p></div>
+      <div class="proves-cell"><h4>Built the Buddy way</h4><p>Discovery first, a concrete bet to react to. The method is in the design choices.</p></div>
+    </div>
+    <div class="kpi-row">
+      <span class="kpi-label">How I'd know it's working</span>
+      <span class="kpi-chip">Frame-household attach rate</span>
+      <span class="kpi-chip">Daily "I'm up" engagement</span>
+      <span class="kpi-chip">Visit log frequency</span>
+      <span class="kpi-chip">↓ "is she okay?" calls</span>
+    </div>
+  </div>
+
   <div class="foot">A working prototype by Mallory Odom · part of the <a href="index.html">Skylight proposal</a> · not affiliated with Skylight</div>
+</div>
+
+<!-- qr modal -->
+<div class="scrim" id="qrScrim">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="qr-modal-inner">
+      <h3>Download the Skylight app</h3>
+      <p>Scan with your phone's camera to get the app and stay connected with Mema.</p>
+      <div class="qr-box">
+        <svg viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+          <rect width="21" height="21" fill="#fff"/>
+          <rect x="1" y="1" width="7" height="7" fill="none" stroke="#222" stroke-width=".8"/>
+          <rect x="2.5" y="2.5" width="4" height="4" fill="#222"/>
+          <rect x="13" y="1" width="7" height="7" fill="none" stroke="#222" stroke-width=".8"/>
+          <rect x="14.5" y="2.5" width="4" height="4" fill="#222"/>
+          <rect x="1" y="13" width="7" height="7" fill="none" stroke="#222" stroke-width=".8"/>
+          <rect x="2.5" y="14.5" width="4" height="4" fill="#222"/>
+          <rect x="9" y="1" width="1" height="1" fill="#222"/><rect x="11" y="1" width="1" height="1" fill="#222"/>
+          <rect x="9" y="3" width="2" height="1" fill="#222"/><rect x="9" y="5" width="1" height="1" fill="#222"/>
+          <rect x="11" y="5" width="1" height="1" fill="#222"/><rect x="10" y="7" width="1" height="1" fill="#222"/>
+          <rect x="9" y="9" width="1" height="1" fill="#222"/><rect x="11" y="9" width="1" height="1" fill="#222"/>
+          <rect x="1" y="9" width="1" height="1" fill="#222"/><rect x="3" y="9" width="2" height="1" fill="#222"/>
+          <rect x="6" y="9" width="1" height="1" fill="#222"/><rect x="1" y="11" width="2" height="1" fill="#222"/>
+          <rect x="5" y="11" width="1" height="1" fill="#222"/><rect x="9" y="11" width="3" height="1" fill="#222"/>
+          <rect x="13" y="9" width="1" height="1" fill="#222"/><rect x="15" y="9" width="2" height="1" fill="#222"/>
+          <rect x="19" y="9" width="1" height="1" fill="#222"/><rect x="13" y="11" width="2" height="1" fill="#222"/>
+          <rect x="17" y="11" width="1" height="1" fill="#222"/><rect x="19" y="11" width="1" height="1" fill="#222"/>
+          <rect x="9" y="13" width="1" height="1" fill="#222"/><rect x="11" y="13" width="2" height="1" fill="#222"/>
+          <rect x="14" y="13" width="1" height="1" fill="#222"/><rect x="16" y="13" width="1" height="1" fill="#222"/>
+          <rect x="9" y="15" width="2" height="1" fill="#222"/><rect x="13" y="15" width="1" height="1" fill="#222"/>
+          <rect x="15" y="15" width="3" height="1" fill="#222"/><rect x="9" y="17" width="1" height="1" fill="#222"/>
+          <rect x="12" y="17" width="2" height="1" fill="#222"/><rect x="16" y="17" width="1" height="1" fill="#222"/>
+          <rect x="18" y="17" width="2" height="1" fill="#222"/><rect x="10" y="19" width="1" height="1" fill="#222"/>
+          <rect x="13" y="19" width="1" height="1" fill="#222"/><rect x="15" y="19" width="2" height="1" fill="#222"/>
+          <rect x="19" y="19" width="1" height="1" fill="#222"/>
+        </svg>
+      </div>
+      <button class="qr-close" id="qrClose">Done</button>
+    </div>
+  </div>
+</div>
+
+<!-- find my modal -->
+<div class="scrim" id="findMyScrim">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-top sky"><div class="k">Find My</div><h3>What can't you find, Mema?</h3></div>
+    <div class="modal-body findmy-body">
+      <p class="fld-label">What's missing?</p>
+      <div class="item-chips" id="itemChips">
+        <button class="item-chip" data-item="glasses">👓 Glasses</button>
+        <button class="item-chip" data-item="TV remote">📺 TV remote</button>
+        <button class="item-chip" data-item="phone">📱 Phone</button>
+        <button class="item-chip" data-item="keys">🔑 Keys</button>
+        <button class="item-chip" data-item="purse">👜 Purse</button>
+        <button class="item-chip" data-item="medication">💊 Medication</button>
+        <button class="item-chip" data-item="walker">🦽 Walker</button>
+        <button class="item-chip" id="otherChip" data-item="other">✏️ Other</button>
+      </div>
+      <div id="otherInputWrap" style="display:none;margin-top:10px;">
+        <input type="text" id="otherInput" placeholder="What can't you find?" style="width:100%;border:2px solid var(--sky);border-radius:12px;padding:10px 13px;font-family:inherit;font-size:14px;font-weight:600;color:var(--ink);background:var(--card);outline:none;" />
+      </div>
+      <div class="last-seen" id="lastSeen" style="display:none">
+        <strong id="lastSeenTitle">Last seen</strong>
+        <span id="lastSeenTxt"></span>
+      </div>
+      <p class="fld-label">Who should we ask?</p>
+      <div class="recips" id="fmRecips">
+        <div class="recip on" data-recip="Sarah"><div class="rc">✓</div><div class="rn">Sarah</div><div class="rr">daughter-in-law</div></div>
+        <div class="recip on" data-recip="Mike"><div class="rc">✓</div><div class="rn">Mike</div><div class="rr">son</div></div>
+        <div class="recip" data-recip="Katie"><div class="rc"></div><div class="rn">Katie</div><div class="rr">daughter</div></div>
+      </div>
+      <p class="warn" id="fmWarn">Pick what's missing first.</p>
+      <div class="modal-actions">
+        <button class="btn-cancel" id="fmCancel">Cancel</button>
+        <button class="btn-send" id="fmSend">Send to care team</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ride modal -->
@@ -577,6 +794,61 @@
       var how=ch==="Text"?"Text message sent":ch==="Email"?"Email sent":ch==="Calendar"?"Tentative calendar hold added":"Push sent";
       feedAdd(icon,how+" to "+recips.join(" & "),"Channel: "+ch);
     });
+  });
+
+  /* QR modal */
+  $("#qrTile").addEventListener("click",function(){$("#qrScrim").classList.add("open");});
+  $("#qrClose").addEventListener("click",function(){$("#qrScrim").classList.remove("open");});
+  $("#qrScrim").addEventListener("click",function(e){if(e.target===this)$("#qrScrim").classList.remove("open");});
+
+  /* Find My */
+  var lastSeenData={
+    "glasses":"Living room side table, yesterday around 4pm",
+    "TV remote":"Between the couch cushions, this morning",
+    "phone":"Charging in the bedroom, last seen 8am",
+    "keys":"Kitchen hook — but hasn't been checked today",
+    "purse":"Coat closet by the front door, Sunday",
+    "medication":"Bathroom medicine cabinet — was moved to nightstand last week",
+    "walker":"Hallway, near the bathroom"
+  };
+  var fmItem=null;
+  function openFindMy(){$("#findMyScrim").classList.add("open");}
+  function closeFindMy(){$("#findMyScrim").classList.remove("open");fmItem=null;$$("#itemChips .item-chip").forEach(function(c){c.classList.remove("on");});$("#lastSeen").style.display="none";$("#otherInputWrap").style.display="none";$("#otherInput").value="";}
+  $("#findMyBtn").addEventListener("click",openFindMy);
+  $("#fmCancel").addEventListener("click",closeFindMy);
+  $("#findMyScrim").addEventListener("click",function(e){if(e.target===this)closeFindMy();});
+  $$("#itemChips .item-chip").forEach(function(c){
+    c.addEventListener("click",function(){
+      $$("#itemChips .item-chip").forEach(function(x){x.classList.remove("on");});
+      c.classList.add("on");
+      var item=c.getAttribute("data-item");
+      var wrap=$("#otherInputWrap");
+      if(item==="other"){
+        wrap.style.display="block";
+        $("#otherInput").focus();
+        fmItem=$("#otherInput").value.trim()||null;
+        $("#lastSeen").style.display="none";
+      } else {
+        wrap.style.display="none";
+        fmItem=item;
+        var ls=$("#lastSeen");ls.style.display="block";
+        $("#lastSeenTitle").textContent="Last known location — "+fmItem;
+        $("#lastSeenTxt").textContent=lastSeenData[fmItem]||"No location on record yet.";
+      }
+    });
+  });
+  $("#otherInput").addEventListener("input",function(){
+    fmItem=this.value.trim()||null;
+  });
+  $$("#fmRecips .recip").forEach(function(r){r.addEventListener("click",function(){r.classList.toggle("on");$(".rc",r).textContent=r.classList.contains("on")?"✓":"";});});
+  $("#fmSend").addEventListener("click",function(){
+    if(!fmItem){$("#fmWarn").classList.add("show");return;}
+    $("#fmWarn").classList.remove("show");
+    var recips=$$("#fmRecips .recip.on").map(function(r){return r.getAttribute("data-recip");});
+    closeFindMy();
+    calToast("🔍","<b>Find My — "+fmItem+"</b> · asked "+recips.join(" & "),"");
+    pushBanner("🔍","Find My — "+fmItem,"Mema can't find her "+fmItem+". Anyone know where it is?","Skylight · now");
+    feedAdd("🔍","<b>Mema can't find her "+fmItem+"</b> — asked "+recips.join(" & "),lastSeenData[fmItem]||"No location on record","sky");
   });
 
   $("#resetBtn").addEventListener("click",function(){location.reload();});
