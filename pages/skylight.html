@@ -3,368 +3,584 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mallory Odom — for Skylight</title>
+<title>Mema's Day — the Family OS, grown up</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --paper:#FBF8F2;
-    --paper-2:#F4EEE3;
-    --card:#FFFFFF;
-    --ink:#2B2E36;
-    --ink-soft:#5C616E;
-    --ink-faint:#8A8F9C;
-    --sage:#84A98C;
-    --sage-deep:#5C8266;
-    --lagoon:#6CA6C6;
-    --lagoon-deep:#3E7A9D;
-    --lavender:#BBA9E0;
-    --apricot:#EBA982;
-    --line:#EAE2D4;
-    --shadow:0 18px 40px -24px rgba(43,46,54,.32);
-    --shadow-soft:0 10px 28px -20px rgba(43,46,54,.28);
-    --r-lg:28px;
-    --r-md:20px;
-    --r-sm:14px;
-    --maxw:920px;
+    --bg:#F4F7FC;--panel:#FFFFFF;--card:#FFFFFF;
+    --ink:#28303F;--ink-soft:#5A6473;--ink-faint:#98A1B0;--line:#E4E9F1;
+    --sky:#4E7FC8;--sky-deep:#2F5490;--sky-soft:#E8EFFB;
+    --sage:#6FAE86;--sage-deep:#4C8A63;--sage-soft:#E2F0E7;
+    --lagoon:#3F9BB0;--lagoon-soft:#DEF0F3;
+    --buddy:#C6B6E8;--buddy-deep:#9E86D6;--buddy-dome:#EBC94F;--buddy-base:#ECE6F6;
+    --peach:#EBC59A;--peach-soft:#F7E7CF;
+    --marigold:#DE9F38;--marigold-deep:#B87E1F;--marigold-soft:#FAEFD6;
+    --pink:#D98BA6;
+    --shadow:0 18px 40px -22px rgba(40,48,63,.4);--shadow-soft:0 8px 20px -14px rgba(40,48,63,.32);
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:"Inter",system-ui,sans-serif;
-    font-size:17px;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
-  h1,h2,h3{font-family:"Quicksand",sans-serif;font-weight:600;letter-spacing:-.01em;margin:0;}
-  p{margin:0 0 1em;}
-  a{color:var(--lagoon-deep);}
-  .eyebrow{
-    font-family:"Inter",sans-serif;font-weight:600;font-size:12.5px;
-    letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);
-    margin:0 0 14px;
-  }
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Nunito",system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{margin:0;font-weight:800;letter-spacing:-.01em;}
+  p{margin:0;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+  .page{max-width:1200px;margin:0 auto;padding:30px 20px 70px;}
 
-  /* ---------- Device-frame hero ---------- */
-  header{padding:46px 0 18px;}
-  .device{
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:var(--r-lg);
-    box-shadow:var(--shadow);
-    overflow:hidden;
-  }
-  .statusbar{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:13px 22px;background:var(--paper-2);
-    border-bottom:1px solid var(--line);
-    font-size:13px;color:var(--ink-soft);font-weight:500;
-  }
-  .statusbar .os{display:flex;align-items:center;gap:9px;font-family:"Quicksand";font-weight:600;color:var(--ink);}
-  .dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
-  .dot.sage{background:var(--sage);}
-  .dot.lagoon{background:var(--lagoon);}
-  .dot.lav{background:var(--lavender);}
-  .statusbar .meta{display:flex;align-items:center;gap:14px;font-variant-numeric:tabular-nums;}
-  .screen{padding:40px 34px 38px;}
-  .screen h1{font-size:clamp(30px,5.4vw,46px);line-height:1.08;}
-  .screen h1 .hl{color:var(--sage-deep);}
-  .screen .sub{font-size:clamp(17px,2.4vw,19px);color:var(--ink-soft);max-width:44ch;margin-top:18px;}
-  .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;}
-  .btn{
-    display:inline-flex;align-items:center;gap:8px;
-    font-family:"Quicksand";font-weight:600;font-size:15px;
-    padding:12px 22px;border-radius:999px;text-decoration:none;
-    border:1.5px solid transparent;transition:transform .15s ease, background .15s ease;
-  }
-  .btn.primary{background:var(--sage);color:#fff;}
-  .btn.primary:hover{background:var(--sage-deep);transform:translateY(-1px);}
-  .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line);}
-  .btn.ghost:hover{border-color:var(--sage);transform:translateY(-1px);}
+  .masthead{margin-bottom:22px;}
+  .kicker{font-size:12.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--sky);}
+  .masthead h1{font-size:clamp(26px,4vw,38px);margin-top:8px;color:var(--sky-deep);}
+  .masthead p{margin-top:10px;color:var(--ink-soft);max-width:76ch;font-size:16px;}
 
-  .note-from{
-    margin-top:22px;font-size:13.5px;color:var(--ink-faint);
-    display:flex;align-items:center;gap:9px;
-  }
+  .stage{background:linear-gradient(180deg,var(--sky-soft),var(--panel) 70%);border:1px solid var(--line);border-radius:24px;padding:40px 26px 30px;box-shadow:var(--shadow-soft);}
+  .lineup{display:flex;align-items:flex-end;justify-content:center;gap:clamp(22px,3.5vw,48px);flex-wrap:wrap;}
+  .dev{display:flex;flex-direction:column;align-items:center;position:relative;}
+  .dev .ground{width:80%;height:16px;border-radius:50%;background:rgba(40,48,63,.13);filter:blur(7px);margin-top:12px;}
+  .cap{margin-top:16px;font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);text-align:center;}
+  .cap b{color:var(--ink-soft);display:block;font-size:13px;letter-spacing:0;text-transform:none;}
 
-  /* ---------- Sections ---------- */
-  section{padding:46px 0;}
-  .sec-head{margin-bottom:26px;}
-  .sec-head h2{font-size:clamp(23px,3.6vw,30px);}
-  .sec-head .lede{color:var(--ink-soft);max-width:58ch;margin-top:10px;}
+  /* ===== Calendar ===== */
+  .cal-unit{display:flex;flex-direction:column;align-items:center;}
+  .cal-frame{background:#fff;border:1px solid var(--line);border-radius:16px;padding:11px;box-shadow:var(--shadow);width:600px;max-width:88vw;}
+  .cal{background:var(--card);border-radius:9px;overflow:hidden;position:relative;border:1px solid var(--line);min-height:330px;}
+  .cal-neck{width:16px;height:26px;background:#DDE3EC;margin:-1px auto 0;}
+  .cal-stand{width:150px;height:14px;background:#D4DCE7;border-radius:0 0 10px 10px;box-shadow:var(--shadow-soft);}
+  .toast-stack{position:absolute;top:50px;right:10px;width:250px;display:flex;flex-direction:column;gap:7px;pointer-events:none;z-index:8;}
+  .cal-bar{background:var(--sky);color:#fff;padding:11px 15px;display:flex;justify-content:space-between;align-items:center;}
+  .cal-bar h3{font-size:15px;}
+  .cal-bar .wk{font-size:11.5px;opacity:.9;font-weight:600;}
 
-  /* tile grid for "why me" */
-  .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-  .tile{
-    background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);
-    padding:22px 20px;box-shadow:var(--shadow-soft);
-  }
-  .tile .chip{
-    width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;
-    font-family:"Quicksand";font-weight:700;color:#fff;font-size:16px;margin-bottom:14px;
-  }
-  .tile h3{font-size:17px;margin-bottom:7px;}
-  .tile p{font-size:14.5px;color:var(--ink-soft);margin:0;}
+  /* profiles row */
+  .profiles{display:flex;align-items:flex-end;gap:14px;padding:13px 16px 6px;}
+  .profile{display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;background:none;}
+  .profile .pic{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;color:#fff;border:2.5px solid transparent;}
+  .profile .pnm{font-size:10.5px;font-weight:700;color:var(--ink-soft);}
+  .profile.mema{position:relative;}
+  .profile.mema .pic{width:58px;height:58px;font-size:22px;border-color:var(--buddy-deep);box-shadow:0 0 0 3px var(--buddy-soft, #EDE7F8);}
+  .profile.mema .badge-buddy{position:absolute;top:34px;right:-2px;width:20px;height:20px;border-radius:7px;background:var(--buddy);border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:9px;}
+  .profile.mema .pnm{font-size:12px;font-weight:800;color:var(--buddy-deep);}
+  .profile:hover .pic{transform:translateY(-2px);transition:transform .12s ease;}
 
-  /* the bet */
-  .bet{
-    background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
-    box-shadow:var(--shadow);overflow:hidden;
-  }
-  .bet-top{padding:26px 30px;background:linear-gradient(180deg,var(--paper-2),var(--card));border-bottom:1px solid var(--line);}
-  .bet-top .tag{font-family:"Quicksand";font-weight:600;font-size:13px;color:var(--lagoon-deep);letter-spacing:.04em;}
-  .bet-top h3{font-size:clamp(21px,3.2vw,27px);margin-top:8px;line-height:1.15;}
-  .bet-grid{display:grid;grid-template-columns:1fr 1fr;}
-  .bet-cell{padding:24px 30px;border-top:1px solid var(--line);}
-  .bet-cell:nth-child(odd){border-right:1px solid var(--line);}
-  .bet-cell .k{
-    font-family:"Inter";font-weight:600;font-size:12px;letter-spacing:.12em;
-    text-transform:uppercase;color:var(--ink-faint);margin-bottom:9px;
-  }
-  .bet-cell p{font-size:15px;color:var(--ink-soft);margin:0;}
-  .bet-cell strong{color:var(--ink);font-weight:600;}
-  .mlp-list{margin:0;padding:0;list-style:none;}
-  .mlp-list li{font-size:15px;color:var(--ink-soft);padding-left:22px;position:relative;margin-bottom:9px;}
-  .mlp-list li:last-child{margin-bottom:0;}
-  .mlp-list li::before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:50%;background:var(--sage);}
-  .aside{
-    margin-top:18px;background:var(--paper-2);border:1px dashed var(--line);
-    border-radius:var(--r-sm);padding:16px 18px;font-size:14px;color:var(--ink-soft);
-  }
-  .aside b{color:var(--ink);font-family:"Quicksand";font-weight:600;}
+  /* week grid */
+  .weekgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;padding:6px 15px 12px;}
+  .wd{background:var(--bg);border:1px solid var(--line);border-radius:8px;min-height:92px;padding:5px 4px;}
+  .wd .dnum{font-size:11px;font-weight:800;color:var(--ink-faint);text-align:center;margin-bottom:5px;}
+  .wd.today{background:var(--sky-soft);border-color:var(--sky);}
+  .wd.today .dnum{color:var(--sky-deep);}
+  .chip{font-size:8.5px;font-weight:800;color:#fff;border-radius:5px;padding:3px 4px;margin-bottom:3px;line-height:1.15;overflow:hidden;}
+  .chip.mema{background:var(--marigold);}
+  .chip.katie{background:var(--pink);}
+  .chip.mike{background:#8a6fb0;}
+  .weekhint{padding:0 15px 14px;}
+  .weekhint button{width:100%;background:var(--buddy);color:#fff;font-weight:800;font-size:12.5px;padding:10px;border-radius:10px;}
+  .weekhint button:hover{background:var(--buddy-deep);}
 
-  /* personal note */
-  .personal{
-    background:var(--card);border:1px solid var(--line);border-left:4px solid var(--sage);
-    border-radius:var(--r-md);padding:26px 30px;box-shadow:var(--shadow-soft);
-  }
-  .personal .eyebrow{margin-bottom:12px;}
-  .personal p{font-size:16.5px;color:var(--ink-soft);margin:0;line-height:1.62;}
-  .personal p .em{color:var(--ink);font-weight:500;}
+  /* day view */
+  .cal-day-view{display:none;}
+  .day-top{display:flex;align-items:center;gap:8px;padding:11px 15px 4px;}
+  .back-btn{font-size:12px;font-weight:800;color:var(--sky-deep);background:var(--sky-soft);padding:5px 11px;border-radius:999px;}
+  .day-top h4{font-size:13px;color:var(--ink);}
+  .cal-cols{display:grid;grid-template-columns:1.35fr 1fr;gap:12px;padding:8px 15px 15px;}
+  .cal-day{font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-faint);margin:9px 0 6px;}
+  .cal-day:first-child{margin-top:0;}
+  .evt{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--sky);border-radius:9px;padding:7px 9px;margin-bottom:6px;transition:all .2s ease;}
+  .evt .et{font-size:11px;font-weight:800;color:var(--ink-soft);width:42px;flex:none;}
+  .evt .en{flex:1;font-size:12.5px;font-weight:700;line-height:1.25;}
+  .evt .who{font-size:10.5px;font-weight:700;color:var(--ink-faint);}
+  .evt.mema{border-left-color:var(--marigold);}
+  .evt.done-e{background:var(--sage-soft);border-left-color:var(--sage);}
+  .evt.done-e .en{text-decoration:line-through;color:var(--sage-deep);}
+  .evt .mini-check{width:18px;height:18px;border-radius:50%;border:2px solid var(--sage);flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;}
+  .evt.done-e .mini-check{background:var(--sage);}
+  .ask-btn{font-size:10.5px;font-weight:800;color:#fff;background:var(--marigold);padding:5px 9px;border-radius:999px;white-space:nowrap;transition:transform .12s ease;}
+  .ask-btn:hover{transform:translateY(-1px);}
+  .ask-btn.sent{background:var(--ink-faint);}
+  .mema-status{background:var(--marigold-soft);border:1px dashed var(--marigold);border-radius:9px;padding:8px 10px;margin-bottom:8px;}
+  .mema-status.up{background:var(--sage-soft);border-style:solid;border-color:var(--sage);}
+  .mema-status span{font-size:11.5px;font-weight:800;color:var(--ink-soft);}
+  .logvisit{width:100%;background:var(--sky-soft);border:1px solid var(--sky);color:var(--sky-deep);font-weight:800;font-size:11.5px;padding:8px;border-radius:9px;margin-bottom:8px;}
+  .logvisit:hover{background:#dae7fa;}
+  .cal-appcol{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:9px 11px;min-width:0;}
+  .cal-app-h{font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:9px;display:flex;align-items:center;gap:6px;}
+  .cal-app-h .live{margin-left:auto;font-size:9px;color:var(--sage);display:flex;align-items:center;gap:4px;}
+  .cal-app-h .live .d{width:6px;height:6px;border-radius:50%;background:var(--sage);}
 
-  /* method */
-  .method{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-  .step{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:22px 20px;box-shadow:var(--shadow-soft);}
-  .step .n{font-family:"Quicksand";font-weight:700;font-size:13px;color:var(--lagoon-deep);}
-  .step h3{font-size:16px;margin:6px 0 7px;}
-  .step p{font-size:14px;color:var(--ink-soft);margin:0;}
+  /* ===== Phone ===== */
+  .phone{background:#222A38;border-radius:30px;padding:9px;box-shadow:var(--shadow);width:186px;}
+  .phone-screen{background:var(--bg);border-radius:23px;overflow:hidden;height:392px;display:flex;flex-direction:column;position:relative;}
+  .phone-status{display:flex;justify-content:space-between;padding:9px 16px 3px;font-size:10.5px;font-weight:800;color:var(--ink);}
+  .app-bar{background:var(--sky);color:#fff;padding:9px 14px 11px;}
+  .app-bar .logo{font-size:14px;font-weight:800;}
+  .app-bar .sub{font-size:10.5px;opacity:.88;font-weight:600;}
+  .app-body{flex:1;overflow-y:auto;padding:11px;}
+  .mini-mema{display:flex;align-items:center;gap:8px;margin-bottom:11px;}
+  .avatar{width:32px;height:32px;border-radius:50%;background:var(--marigold-soft);color:var(--marigold-deep);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex:none;}
+  .mini-mema .nm{font-size:13px;font-weight:800;}
+  .mini-mema .st{font-size:10.5px;font-weight:700;color:var(--marigold-deep);}
+  .mini-mema .st.ok{color:var(--sage-deep);}
+  .vcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:var(--shadow-soft);}
+  .vcard h4{font-size:13px;margin-bottom:2px;}
+  .vcard .vsub{font-size:10.5px;color:var(--ink-faint);font-weight:600;margin-bottom:10px;}
+  .vlabel{font-size:9.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-faint);margin:8px 0 6px;}
+  .vrates{display:flex;gap:5px;}
+  .vp{flex:1;font-size:10.5px;font-weight:800;padding:8px 3px;border-radius:9px;border:2px solid var(--line);background:var(--bg);color:var(--ink-soft);}
+  .vp.on{border-color:var(--sage);background:var(--sage-soft);color:var(--sage-deep);}
+  .vchips{display:flex;flex-wrap:wrap;gap:5px;}
+  .vc{font-size:10.5px;font-weight:700;padding:6px 9px;border-radius:999px;border:2px solid var(--line);background:var(--bg);color:var(--ink-soft);}
+  .vc.on{border-color:var(--sky);background:var(--sky-soft);color:var(--sky-deep);}
+  textarea.vnote{width:100%;border:2px solid var(--line);border-radius:10px;padding:8px;font-family:inherit;font-size:11.5px;font-weight:600;color:var(--ink);resize:none;height:46px;background:var(--bg);margin-top:4px;}
+  textarea.vnote:focus{outline:none;border-color:var(--sky);}
+  .vsave{width:100%;margin-top:11px;background:var(--sky);color:#fff;font-weight:800;font-size:12.5px;padding:11px;border-radius:11px;transition:background .15s ease;}
+  .vsave:hover{background:var(--sky-deep);}
+  .vdone{background:var(--sage-soft);border:1px solid var(--sage);border-radius:14px;padding:16px 12px;text-align:center;}
+  .vdone .ic{font-size:26px;}
+  .vdone .t{font-size:13px;font-weight:800;color:var(--sage-deep);margin-top:4px;}
+  .vdone .m{font-size:11px;color:var(--ink-soft);font-weight:600;margin-top:3px;}
+  .feed-h{font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin:14px 4px 7px;}
+  .feed-item{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 10px;margin-bottom:7px;display:flex;gap:8px;align-items:flex-start;animation:bloom .3s ease;}
+  .feed-item .fi{width:26px;height:26px;border-radius:7px;flex:none;display:flex;align-items:center;justify-content:center;font-size:13px;background:var(--sage-soft);}
+  .feed-item .fi.gold{background:var(--marigold-soft);}
+  .feed-item .fi.sky{background:var(--sky-soft);}
+  .feed-item .ft{font-size:11.5px;font-weight:700;line-height:1.3;}
+  .feed-item .fm{font-size:10px;color:var(--ink-faint);font-weight:600;margin-top:2px;}
+  .feed-empty{font-size:11.5px;color:var(--ink-faint);text-align:center;padding:14px 8px;font-weight:600;}
+  .push{position:absolute;top:6px;left:8px;right:8px;background:rgba(34,42,56,.97);color:#fff;border-radius:14px;padding:10px 12px;box-shadow:0 12px 30px -10px rgba(0,0,0,.5);z-index:9;display:flex;gap:9px;align-items:flex-start;transform:translateY(-170%);transition:transform .45s cubic-bezier(.2,.9,.3,1.2);}
+  .push.show{transform:translateY(0);}
+  .push .pi{font-size:16px;}
+  .push .pt{font-size:11.5px;font-weight:800;}
+  .push .pm{font-size:10.5px;opacity:.9;font-weight:600;margin-top:1px;}
+  .push .pmeta{font-size:9px;opacity:.7;font-weight:700;margin-top:3px;letter-spacing:.04em;text-transform:uppercase;}
 
-  /* proof */
-  .proof{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-soft);padding:30px;}
-  .proof-row{display:grid;grid-template-columns:160px 1fr;gap:18px;padding:18px 0;border-top:1px solid var(--line);}
-  .proof-row:first-of-type{border-top:none;padding-top:0;}
-  .proof-row .label{font-family:"Quicksand";font-weight:600;color:var(--ink);font-size:15.5px;}
-  .proof-row .label span{display:block;font-family:"Inter";font-weight:500;font-size:12.5px;color:var(--ink-faint);margin-top:3px;}
-  .proof-row p{font-size:14.5px;color:var(--ink-soft);margin:0;}
+  /* ===== Buddy Sr (matches real Buddy) ===== */
+  .buddy-unit{display:flex;flex-direction:column;align-items:center;}
+  /* Buddy Sr — wide landscape rectangle matching real Buddy proportions (~16:10) */
+  .buddy{position:relative;width:320px;height:210px;background:var(--buddy);border-radius:32px / 36px;padding:14px 16px 14px;box-shadow:var(--shadow);}
+  .buddy-dome{position:absolute;top:-13px;right:72px;width:44px;height:30px;background:var(--buddy-dome);border-radius:50% 50% 44% 44% / 58% 58% 42% 42%;box-shadow:inset 0 -3px 5px rgba(0,0,0,.08),var(--shadow-soft);}
+  .buddy-ctrls{position:absolute;top:10px;left:28px;display:flex;gap:5px;align-items:center;}
+  .buddy-ctrls i{width:14px;height:5px;border-radius:3px;background:rgba(255,255,255,.55);}
+  .buddy-ctrls i.dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.4);}
+  .buddy-screen{background:#fff;border-radius:20px;padding:10px 11px;height:100%;overflow-y:auto;box-shadow:inset 0 0 0 1px rgba(0,0,0,.03);}
+  .b-topbar{display:flex;align-items:center;gap:7px;border-bottom:1.5px solid var(--line);padding-bottom:7px;}
+  .b-ava{width:22px;height:22px;border-radius:50%;background:var(--marigold);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:10px;flex:none;}
+  .b-time{font-size:10px;font-weight:800;color:var(--ink-soft);flex:1;}
+  .b-wx{font-size:10px;font-weight:800;color:var(--ink-soft);background:var(--sky-soft);padding:2px 6px;border-radius:999px;}
+  .buddy-greet{font-size:13px;font-weight:800;margin:8px 0 6px;color:var(--buddy-deep);}
+  .imup{width:100%;font-size:16px;font-weight:800;padding:13px;border-radius:13px;background:var(--sage);color:#fff;display:flex;align-items:center;justify-content:center;gap:7px;box-shadow:var(--shadow-soft);transition:transform .12s ease;}
+  .imup:hover{transform:translateY(-2px);}
+  .buddy-checkin.done{background:var(--sage-soft);border-radius:13px;padding:13px;text-align:center;}
+  .buddy-checkin.done .q{font-size:12px;font-weight:800;color:var(--sage-deep);}
+  .buddy h4.blk{font-size:9px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-faint);margin:10px 0 6px;}
+  .task{display:flex;align-items:center;gap:8px;background:var(--bg);border:2px solid var(--line);border-radius:10px;padding:6px 8px;margin-bottom:5px;transition:all .2s ease;cursor:pointer;}
+  .task .tick{width:20px;height:20px;flex:none;border-radius:50%;border:2px solid var(--sage);display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;background:transparent;transition:all .2s ease;}
+  .task .tbody{flex:1;min-width:0;}
+  .task .tname{font-size:11.5px;font-weight:700;line-height:1.2;}
+  .task .ttime{font-size:10px;color:var(--ink-soft);font-weight:600;}
+  .task.flag{border-color:var(--marigold);background:var(--marigold-soft);}
+  .task .badge{font-size:8.5px;font-weight:800;color:#fff;background:var(--marigold);padding:2px 5px;border-radius:999px;white-space:nowrap;}
+  .task.done{background:var(--sage-soft);border-color:var(--sage);}
+  .task.done .tick{background:var(--sage);border-color:var(--sage);}
+  .task.done .tname{text-decoration:line-through;color:var(--sage-deep);}
+  .call{width:100%;margin-top:7px;font-size:12px;font-weight:800;padding:9px;border-radius:10px;background:var(--sky-soft);border:2px solid var(--sky-soft);color:var(--sky-deep);display:flex;align-items:center;justify-content:center;gap:6px;}
+  .call:hover{border-color:var(--sky);}
+  .buddy-base{width:130px;height:14px;background:var(--buddy-base);border-radius:0 0 10px 10px;box-shadow:var(--shadow-soft);}
 
-  /* close */
-  .close{
-    background:linear-gradient(135deg,var(--sage) 0%,var(--lagoon) 100%);
-    border-radius:var(--r-lg);padding:42px 34px;text-align:center;color:#fff;box-shadow:var(--shadow);
-  }
-  .close h2{color:#fff;font-size:clamp(22px,3.4vw,29px);}
-  .close p{color:rgba(255,255,255,.92);max-width:48ch;margin:12px auto 22px;}
-  .close .btn.primary{background:#fff;color:var(--sage-deep);}
-  .close .btn.primary:hover{background:var(--paper);}
+  /* toasts */
+  .toast{background:var(--sky-deep);color:#fff;border-radius:10px;padding:9px 11px;font-size:11.5px;font-weight:700;box-shadow:var(--shadow);display:flex;gap:7px;align-items:flex-start;transform:scale(.9);opacity:0;animation:bloom .35s ease forwards;}
+  .toast.gold{background:var(--marigold);}
+  .toast.sage{background:var(--sage-deep);}
+  .toast .ti{font-size:14px;line-height:1.1;}
+  @keyframes bloom{to{transform:scale(1);opacity:1;}}
+  .toast.out{animation:fade .4s ease forwards;}
+  @keyframes fade{to{opacity:0;transform:translateY(-6px);}}
 
-  footer{padding:34px 0 56px;text-align:center;color:var(--ink-faint);font-size:13px;}
-  footer a{color:var(--ink-soft);}
+  /* modals */
+  .scrim{position:fixed;inset:0;background:rgba(30,38,52,.55);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;z-index:50;padding:20px;}
+  .scrim.open{display:flex;animation:bloom .25s ease;}
+  .modal{background:var(--panel);border-radius:20px;max-width:460px;width:100%;box-shadow:var(--shadow);overflow:hidden;max-height:92vh;overflow-y:auto;}
+  .modal-top{color:#fff;padding:18px 22px;}
+  .modal-top.gold{background:var(--marigold);}
+  .modal-top.sky{background:var(--sky);}
+  .modal-top .k{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.92;}
+  .modal-top h3{font-size:20px;margin-top:4px;}
+  .modal-body{padding:20px 22px 22px;}
+  .ctx{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:18px;}
+  .ctx .cl{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);}
+  .ctx .cv{font-size:16px;font-weight:800;margin-top:3px;}
+  .ctx .cv .need{color:var(--marigold-deep);}
+  .fld-label{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 9px;}
+  .recips{display:flex;flex-direction:column;gap:8px;margin-bottom:18px;}
+  .recip{display:flex;align-items:center;gap:11px;background:var(--card);border:2px solid var(--line);border-radius:12px;padding:9px 12px;cursor:pointer;transition:all .15s ease;}
+  .recip.on{border-color:var(--sky);background:var(--sky-soft);}
+  .recip .rc{width:22px;height:22px;border-radius:6px;border:2px solid var(--ink-faint);flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:800;}
+  .recip.on .rc{background:var(--sky);border-color:var(--sky);}
+  .recip .rn{font-size:15px;font-weight:700;flex:1;}
+  .recip .rr{font-size:12px;font-weight:700;color:var(--ink-faint);}
+  textarea.note{width:100%;border:2px solid var(--line);border-radius:12px;padding:12px;font-family:inherit;font-size:14px;font-weight:600;color:var(--ink);resize:vertical;min-height:60px;background:var(--card);margin-bottom:18px;}
+  textarea.note:focus{outline:none;border-color:var(--sky);}
+  .m-rates{display:flex;gap:8px;margin-bottom:18px;}
+  .mvp{flex:1;font-size:13px;font-weight:800;padding:11px 4px;border-radius:11px;border:2px solid var(--line);background:var(--card);color:var(--ink-soft);}
+  .mvp.on{border-color:var(--sage);background:var(--sage-soft);color:var(--sage-deep);}
+  .m-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
+  .mvc{font-size:13px;font-weight:700;padding:8px 13px;border-radius:999px;border:2px solid var(--line);background:var(--card);color:var(--ink-soft);}
+  .mvc.on{border-color:var(--sky);background:var(--sky-soft);color:var(--sky-deep);}
+  .channels{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px;}
+  .chan{display:flex;align-items:center;gap:9px;background:var(--card);border:2px solid var(--line);border-radius:12px;padding:10px 12px;cursor:pointer;transition:all .15s ease;}
+  .chan.on{border-color:var(--sky);background:var(--sky-soft);}
+  .chan .ci{font-size:17px;}
+  .chan .cn{font-size:14px;font-weight:700;flex:1;}
+  .chan .ck{width:18px;height:18px;border-radius:5px;border:2px solid var(--ink-faint);flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;}
+  .chan.on .ck{background:var(--sky);border-color:var(--sky);}
+  .modal-actions{display:flex;gap:10px;}
+  .btn-send{flex:1;background:var(--sky);color:#fff;font-weight:800;font-size:15px;padding:14px;border-radius:12px;transition:background .15s ease;}
+  .btn-send:hover{background:var(--sky-deep);}
+  .warn{font-size:12px;color:var(--marigold-deep);font-weight:700;margin-bottom:12px;display:none;}
+  .warn.show{display:block;}
+  .btn-cancel{background:transparent;border:2px solid var(--line);color:var(--ink-soft);font-weight:800;font-size:15px;padding:14px 18px;border-radius:12px;}
 
-  @media (max-width:720px){
-    body{font-size:16px;}
-    .screen{padding:30px 22px 30px;}
-    .tiles{grid-template-columns:1fr;}
-    .bet-grid{grid-template-columns:1fr;}
-    .bet-cell:nth-child(odd){border-right:none;}
-    .method{grid-template-columns:1fr;}
-    .proof-row{grid-template-columns:1fr;gap:6px;}
-    .statusbar .meta .hide-sm{display:none;}
-  }
-  @media (prefers-reduced-motion:reduce){
-    *{transition:none !important;scroll-behavior:auto;}
-  }
+  .foot{margin-top:24px;text-align:center;font-size:12.5px;color:var(--ink-faint);font-weight:600;}
+  .foot a{color:var(--ink-soft);}
+  .reset{margin-top:16px;text-align:center;}
+  .reset button{font-size:13px;font-weight:800;color:var(--ink-soft);border:2px solid var(--line);background:var(--panel);padding:9px 18px;border-radius:999px;}
+  .reset button:hover{border-color:var(--sky);}
+  :focus-visible{outline:3px solid var(--sky);outline-offset:2px;}
+
+  @media (max-width:820px){.lineup{gap:32px;}.cal-frame{width:100%;max-width:520px;}}
+  @media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important;}}
 </style>
 </head>
 <body>
+<div class="page">
 
-<header>
-  <div class="wrap">
-    <div class="device">
-      <div class="statusbar">
-        <div class="os">
-          <span class="dot sage"></span><span class="dot lagoon"></span><span class="dot lav"></span>
-          Family OS
+  <div class="masthead">
+    <p class="kicker">Buddy Sr · a working prototype</p>
+    <h1>Mema's Day — the Family OS, grown up</h1>
+    <p>Three real Skylight surfaces at true scale. Mema taps <b>I'm up</b> on Buddy Sr; the family sees it on the Calendar and logs their visits from the app — and every action ripples across all three in real time. Tap around: open Mema's day from the calendar, log a visit on the phone, or send a ride request from her Tuesday appointment.</p>
+  </div>
+
+  <div class="stage">
+    <div class="lineup">
+
+      <!-- CALENDAR -->
+      <div class="dev">
+        <div class="cal-unit">
+          <div class="cal-frame">
+            <div class="cal">
+              <div class="toast-stack" id="calToasts"></div>
+              <div class="cal-bar"><h3>The Nguyen Family</h3><span class="wk">June 2026</span></div>
+
+              <!-- week (starter) view -->
+              <div id="calWeek">
+                <div class="profiles">
+                  <button class="profile" data-open="day"><span class="pic" style="background:#5E86A8">S</span><span class="pnm">Sarah</span></button>
+                  <button class="profile" data-open="day"><span class="pic" style="background:#8a6fb0">Mi</span><span class="pnm">Mike</span></button>
+                  <button class="profile" data-open="day"><span class="pic" style="background:#c46a86">K</span><span class="pnm">Katie</span></button>
+                  <button class="profile mema" id="memaProfile" data-open="day"><span class="pic" style="background:var(--marigold)">M</span><span class="badge-buddy">🟣</span><span class="pnm">Mema</span></button>
+                </div>
+                <div class="weekgrid">
+                  <div class="wd today"><div class="dnum">Sun 8</div><div class="chip mema">Pills</div><div class="chip mema">Walk</div><div class="chip katie">Soccer</div></div>
+                  <div class="wd"><div class="dnum">Mon 9</div></div>
+                  <div class="wd"><div class="dnum">Tue 10</div><div class="chip mema">Dr. Nguyen</div><div class="chip mike">Dinner</div></div>
+                  <div class="wd"><div class="dnum">Wed 11</div></div>
+                  <div class="wd"><div class="dnum">Thu 12</div></div>
+                  <div class="wd"><div class="dnum">Fri 13</div></div>
+                  <div class="wd"><div class="dnum">Sat 14</div></div>
+                </div>
+                <div class="weekhint"><button data-open="day">Open Mema's day ›</button></div>
+              </div>
+
+              <!-- day (current) view -->
+              <div id="calDay" class="cal-day-view">
+                <div class="day-top"><button class="back-btn" id="toWeekBtn">‹ Week</button><h4>Mema · Sunday, June 8</h4></div>
+                <div class="cal-cols">
+                  <div class="cal-sched">
+                    <div class="cal-day">This morning</div>
+                    <div class="mema-status" id="memaStatus"><span id="memaStatusTxt">☐ Mema hasn't tapped "I'm up" yet</span></div>
+                    <button class="logvisit" id="logVisitBtn">＋ Log a visit with Mema</button>
+                    <div class="evt mema" data-mirror="pills"><div class="mini-check">✓</div><div class="et">8:00a</div><div class="en">Morning pills <span class="who">· Mema</span></div></div>
+                    <div class="evt mema" data-mirror="walk"><div class="mini-check">✓</div><div class="et">3:00p</div><div class="en">Walk w/ Biscuit <span class="who">· Mema</span></div></div>
+                    <div class="cal-day">Tuesday · June 10</div>
+                    <div class="evt mema" id="apptEvt"><div class="et">2:00p</div><div class="en">Dr. Nguyen <span class="who">· needs a ride</span></div><button class="ask-btn" id="askBtn">Ask family</button></div>
+                  </div>
+                  <div class="cal-appcol">
+                    <div class="cal-app-h">📱 Skylight <span class="live"><span class="d"></span>live</span></div>
+                    <div id="calFeed"><div class="feed-empty" id="calFeedEmpty">Quiet so far today.</div></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="cal-neck"></div>
+          <div class="cal-stand"></div>
         </div>
-        <div class="meta">
-          <span class="hide-sm">a note for Skylight</span>
-          <span>9:41</span>
-        </div>
+        <div class="ground"></div>
+        <div class="cap"><b>Skylight Calendar</b>the family hub</div>
       </div>
-      <div class="screen">
-        <p class="eyebrow">Product Manager · 0→1</p>
-        <h1>Buddy grew the Family OS down to the kids. Here's how I'd grow it <span class="hl">up.</span></h1>
-        <p class="sub">I'm Mallory — a product manager who's also launching a brand of her own. This is a working point of view on where the Family OS goes next — shaped by something my own family has lived, past and present.</p>
-        <div class="cta-row">
-          <a class="btn primary" href="#bet">Read the bet ↓</a>
-          <a class="btn ghost" href="https://www.linkedin.com/in/mallory-odom" target="_blank" rel="noopener">Connect on LinkedIn</a>
+
+      <!-- PHONE -->
+      <div class="dev">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="push" id="push">
+              <div class="pi" id="pushIcon">🔔</div>
+              <div><div class="pt" id="pushTitle">Skylight</div><div class="pm" id="pushMsg"></div><div class="pmeta" id="pushMeta"></div></div>
+            </div>
+            <div class="phone-status"><span>9:12</span><span>◍ ▮▮▮</span></div>
+            <div class="app-bar"><div class="logo">Skylight</div><div class="sub">Family · caring for Mema</div></div>
+            <div class="app-body">
+              <div class="mini-mema"><div class="avatar">M</div><div><div class="nm">Mema</div><div class="st" id="phoneStatus">Hasn't tapped "I'm up" yet</div></div></div>
+              <div class="vcard" id="visitForm">
+                <h4>Log your visit</h4>
+                <div class="vsub">Tell the family how Mema's doing.</div>
+                <div class="vlabel">How did it go?</div>
+                <div class="vrates" id="vrates">
+                  <button class="vp" data-rate="Great">Great</button>
+                  <button class="vp" data-rate="Okay">Okay</button>
+                  <button class="vp" data-rate="A bit off">A bit off</button>
+                </div>
+                <div class="vlabel">What did you do?</div>
+                <div class="vchips" id="vchips">
+                  <button class="vc" data-act="Shared a meal">🍲 Meal</button>
+                  <button class="vc" data-act="Sorted meds">💊 Meds</button>
+                  <button class="vc" data-act="Went for a walk">🚶 Walk</button>
+                  <button class="vc" data-act="Groceries">🛒 Groceries</button>
+                  <button class="vc" data-act="Just visited">💬 Visited</button>
+                </div>
+                <div class="vlabel">Anything to pass along?</div>
+                <textarea class="vnote" id="visitNote" placeholder="Optional note for the family…"></textarea>
+                <button class="vsave" id="visitSave">Save visit</button>
+              </div>
+              <div class="feed-h">Notifications</div>
+              <div id="feed"><div class="feed-empty" id="feedEmpty">Quiet so far today.</div></div>
+            </div>
+          </div>
         </div>
-        <div class="note-from">
-          <span class="dot sage"></span> Built the way Buddy was — discovery first, opinion second.
-        </div>
+        <div class="ground"></div>
+        <div class="cap"><b>Skylight app</b>everyone's phone</div>
       </div>
+
+      <!-- BUDDY SR -->
+      <div class="dev">
+        <div class="buddy-unit">
+          <div class="buddy">
+            <div class="buddy-dome"></div>
+            <div class="buddy-ctrls"><i></i><i></i><i class="dot"></i></div>
+            <div class="buddy-screen">
+              <div class="b-topbar"><div class="b-ava">M</div><div class="b-time">9:12 AM · Sun, Jun 8</div><div class="b-wx">72° ☀️</div></div>
+              <div class="buddy-greet">Good morning, Mema 🌷</div>
+              <div class="buddy-checkin" id="memaCheckin">
+                <button class="imup" id="imUpBtn">☀️ I'm up</button>
+              </div>
+              <h4 class="blk">Today</h4>
+              <div id="memaTasks">
+                <div class="task" data-task="pills"><div class="tick">✓</div><div class="tbody"><div class="tname">Morning pills</div><div class="ttime">8:00 AM</div></div></div>
+                <div class="task" data-task="lunch"><div class="tick">✓</div><div class="tbody"><div class="tname">Lunch — soup</div><div class="ttime">12:30 PM</div></div></div>
+                <div class="task" data-task="walk"><div class="tick">✓</div><div class="tbody"><div class="tname">Walk w/ Biscuit</div><div class="ttime">3:00 PM</div></div></div>
+                <div class="task flag" data-task="appt"><div class="tick">✓</div><div class="tbody"><div class="tname">Dr. Nguyen</div><div class="ttime">Tue, 2:00 PM</div></div><div class="badge">ride</div></div>
+              </div>
+              <button class="call">📞 Call Sarah</button>
+            </div>
+          </div>
+          <div class="buddy-base"></div>
+        </div>
+        <div class="ground"></div>
+        <div class="cap"><b>Buddy Sr</b>Mema's bedside</div>
+      </div>
+
     </div>
   </div>
-</header>
 
-<section id="why">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">Why this note, from me</p>
-      <h2>Three things that make me the 0→1 PM you described</h2>
-      <p class="lede">I'll be straight about the one gap, too — my PM career is B2B SaaS, not consumer at millions-of-families scale. What follows is how I close that distance.</p>
-    </div>
-    <div class="tiles">
-      <div class="tile">
-        <div class="chip" style="background:var(--sage)">B</div>
-        <h3>I build, end to end</h3>
-        <p>I'm launching LFTR — a print-on-demand apparel brand I architected solo, from storefront to catalog to pricing. Real 0→1 ownership. Happy to share an early look.</p>
+  <div class="reset"><button id="resetBtn">↺ Reset the day</button></div>
+  <div class="foot">A working prototype by Mallory Odom · part of the <a href="index.html">Skylight proposal</a> · not affiliated with Skylight</div>
+</div>
+
+<!-- ride modal -->
+<div class="scrim" id="scrim">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-top gold"><div class="k">Ask the family for help</div><h3 id="modalTitle">Mema needs a ride</h3></div>
+    <div class="modal-body">
+      <div class="ctx"><div class="cl">The appointment</div><div class="cv">Dr. Nguyen · Tue, June 10 · 2:00 PM <span class="need">· needs a ride</span></div></div>
+      <p class="fld-label">Who should we ask?</p>
+      <div class="recips" id="recips">
+        <div class="recip on" data-recip="Mike"><div class="rc">✓</div><div class="rn">Mike</div><div class="rr">son</div></div>
+        <div class="recip on" data-recip="Katie"><div class="rc">✓</div><div class="rn">Katie</div><div class="rr">daughter</div></div>
+        <div class="recip" data-recip="Sarah"><div class="rc"></div><div class="rn">Sarah (you)</div><div class="rr">daughter-in-law</div></div>
       </div>
-      <div class="tile">
-        <div class="chip" style="background:var(--lagoon)">AI</div>
-        <h3>I build in the AI era</h3>
-        <p>I work with AI tooling daily — Claude Code, MCP integrations against my own store's admin. I'm not theorizing about AI product; I'm shipping with it.</p>
+      <p class="fld-label">Add a note</p>
+      <textarea class="note" id="note">Can anyone take Mema to her appointment Tuesday? She's ready by 1:30.</textarea>
+      <p class="fld-label">Notify them by</p>
+      <div class="channels" id="channels">
+        <div class="chan on" data-chan="App"><span class="ci">📱</span><span class="cn">App</span><span class="ck">✓</span></div>
+        <div class="chan on" data-chan="Text"><span class="ci">💬</span><span class="cn">Text</span><span class="ck">✓</span></div>
+        <div class="chan" data-chan="Calendar"><span class="ci">📅</span><span class="cn">Calendar</span><span class="ck"></span></div>
+        <div class="chan" data-chan="Email"><span class="ci">✉️</span><span class="cn">Email</span><span class="ck"></span></div>
       </div>
-      <div class="tile">
-        <div class="chip" style="background:var(--apricot)">♥</div>
-        <h3>I know the customer</h3>
-        <p>Years on the retail and service frontline before PM — and, for the bet below, a family that's lived it. The empathy a family OS lives or dies on.</p>
-      </div>
+      <p class="warn" id="warn">Pick at least one person and one way to reach them.</p>
+      <div class="modal-actions"><button class="btn-cancel" id="cancelBtn">Cancel</button><button class="btn-send" id="sendBtn">Send request</button></div>
     </div>
   </div>
-</section>
+</div>
 
-<section id="bet">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">The bet · my first 90 days, on paper</p>
-      <h2>The Family OS grows up, not just down</h2>
-      <p class="lede">Buddy added a member at the youngest end of the family. The symmetric move — the one hiding in plain sight — is the oldest end: aging parents working to keep their independence, and the adult kids quietly carrying the worry.</p>
-    </div>
-
-    <div class="bet">
-      <div class="bet-top">
-        <span class="tag">The next member of the family OS</span>
-        <h3>A senior surface — software-first, built on the radical simplicity Skylight already leads on. The parent keeps their independence; the family keeps their peace of mind.</h3>
+<!-- visit modal (from calendar) -->
+<div class="scrim" id="visitScrim">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-top sky"><div class="k">Log a visit</div><h3>How was your visit with Mema?</h3></div>
+    <div class="modal-body">
+      <p class="fld-label">How did it go?</p>
+      <div class="m-rates" id="mvrates">
+        <button class="mvp" data-rate="Great">Great</button>
+        <button class="mvp" data-rate="Okay">Okay</button>
+        <button class="mvp" data-rate="A bit off">A bit off</button>
       </div>
-      <div class="bet-grid">
-        <div class="bet-cell">
-          <div class="k">The insight</div>
-          <p>Skylight's origin product, the Frame, is <strong>already in grandparents' homes nationwide</strong> — adult kids buy it as the simplest possible way to stay connected. That's a warm beachhead the OS under-uses. The young end got Buddy. The old end is wide open.</p>
-        </div>
-        <div class="bet-cell">
-          <div class="k">The opportunity</div>
-          <p>Grow the OS <strong>up</strong> — software-led, riding the Frame and Calendar hardware already in the home. Same buyer (the sandwich-generation adult already running the family calendar), and two users whose interests finally <strong>align</strong> instead of pulling apart.</p>
-        </div>
-        <div class="bet-cell">
-          <div class="k">The minimum lovable product</div>
-          <ul class="mlp-list">
-            <li>A <strong>giant-type, high-contrast</strong> day-at-a-glance: today's plan, appointments, gentle medication and hydration nudges.</li>
-            <li>One-tap "call my daughter" and a stream of family photos — <strong>isolation is the real health risk</strong>.</li>
-            <li>A dignity-preserving loop: the parent taps "I'm okay today"; family adds a note or appointment <strong>without it feeling like surveillance</strong>.</li>
-          </ul>
-        </div>
-        <div class="bet-cell">
-          <div class="k">How we'd know it's working</div>
-          <p>Attach rate into existing <strong>Frame-owning households</strong> (the warm funnel), senior daily engagement, and the real prize — fewer "is Mom okay?" coordination calls. The mental-load promise, aimed one generation up.</p>
-        </div>
+      <p class="fld-label">What did you do?</p>
+      <div class="m-chips" id="mvchips">
+        <button class="mvc" data-act="Shared a meal">🍲 Meal</button>
+        <button class="mvc" data-act="Sorted meds">💊 Meds</button>
+        <button class="mvc" data-act="Went for a walk">🚶 Walk</button>
+        <button class="mvc" data-act="Groceries">🛒 Groceries</button>
+        <button class="mvc" data-act="Just visited">💬 Visited</button>
       </div>
-    </div>
-
-    <div class="aside">
-      <b>Other bets I weighed, and why this won.</b> I looked at deepening "what's for dinner" (the strongest AI flex, but it reads as feature-deepening more than a next major step) and a broader household-operations layer (powerful, but it drifts toward a generic to-do app). Growing up wins first: it's a warm beachhead rather than a cold start, it points Skylight's simplicity superpower at the audience that rewards it most, and its two users collaborate rather than compete — the exact thing that would sink a version aimed at teens.
+      <p class="fld-label">Anything to pass along?</p>
+      <textarea class="note" id="mvNote" placeholder="Optional note for the family…"></textarea>
+      <p class="warn" id="mvWarn">Pick how the visit went first.</p>
+      <div class="modal-actions"><button class="btn-cancel" id="mvCancel">Cancel</button><button class="btn-send" id="mvSave">Save visit</button></div>
     </div>
   </div>
-</section>
+</div>
 
-<section id="personal">
-  <div class="wrap">
-    <div class="personal">
-      <p class="eyebrow">Why this one, from me</p>
-      <p><span class="em">This isn't a market abstraction for me.</span> I've watched people I love work to hold onto their independence, and watched the rest of the family quietly carry the worry — and the tools that might have helped were never simple enough to actually get used. That gap, lived firsthand, is why I'd want to build this before anything else.</p>
-    </div>
-  </div>
-</section>
+<script>
+(function(){
+  "use strict";
+  var $=function(s,c){return (c||document).querySelector(s);};
+  var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s));};
+  var state={up:false,tasks:{pills:false,lunch:false,walk:false,appt:false},asked:false,visitRate:null,visitActs:{},mvRate:null,mvActs:{}};
+  var STAMP="9:12 AM";
 
-<section id="method">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">How I'd get there</p>
-      <h2>I'd build it the way Buddy was built</h2>
-      <p class="lede">Your own launch note said it: you surveyed hundreds of parents and co-built with 60 real families until it was right. Same method here — and I'd start from a place I already understand.</p>
-    </div>
-    <div class="method">
-      <div class="step">
-        <div class="n">01</div>
-        <h3>Listen where it's real</h3>
-        <p>Talk to seniors aging in place and the adult kids coordinating their care — my own family included. Find the true shape of the worry before proposing a single pixel.</p>
-      </div>
-      <div class="step">
-        <div class="n">02</div>
-        <h3>Prototype for simplicity</h3>
-        <p>Put a stripped-down surface in front of real senior and adult-child pairs. Cut anything that isn't legible at arm's length. Protect dignity at every step.</p>
-      </div>
-      <div class="step">
-        <div class="n">03</div>
-        <h3>Ship to the metric</h3>
-        <p>Release into the warm Frame install base, watch daily senior engagement, and measure the worry we take off the family's plate.</p>
-      </div>
-    </div>
-  </div>
-</section>
+  function calToast(icon,text,cls){
+    var stack=$("#calToasts");var t=document.createElement("div");
+    t.className="toast"+(cls?" "+cls:"");
+    t.innerHTML='<span class="ti">'+icon+'</span><span>'+text+'</span>';
+    stack.appendChild(t);
+    setTimeout(function(){t.classList.add("out");setTimeout(function(){if(t.parentNode)t.parentNode.removeChild(t);},400);},4200);
+  }
+  function pushBanner(icon,title,msg,meta){
+    $("#pushIcon").textContent=icon;$("#pushTitle").textContent=title;$("#pushMsg").textContent=msg;$("#pushMeta").textContent=meta||"";
+    var p=$("#push");p.classList.add("show");clearTimeout(pushBanner._t);
+    pushBanner._t=setTimeout(function(){p.classList.remove("show");},3800);
+  }
+  function feedAdd(icon,text,meta,cls){
+    [{f:"#feed",e:"#feedEmpty"},{f:"#calFeed",e:"#calFeedEmpty"}].forEach(function(t){
+      var empty=$(t.e);if(empty)empty.style.display="none";
+      var feed=$(t.f);if(!feed)return;
+      var el=document.createElement("div");el.className="feed-item";
+      el.innerHTML='<div class="fi'+(cls?" "+cls:"")+'">'+icon+'</div><div><div class="ft">'+text+'</div>'+(meta?'<div class="fm">'+meta+'</div>':'')+'</div>';
+      feed.insertBefore(el,feed.firstChild);
+    });
+  }
 
-<section id="proof">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">The receipts</p>
-      <h2>What I've actually shipped</h2>
-    </div>
-    <div class="proof">
-      <div class="proof-row">
-        <div class="label">LFTR<span>founder · launching soon</span></div>
-        <p>A print-on-demand apparel brand I built and run solo — storefront, catalog architecture, pricing strategy, SEO, AI-assisted operations. It goes public shortly, and I'd gladly walk you through an early look. The clearest proof I can take a product from zero to live and wear every hat — the job you described.</p>
-      </div>
-      <div class="proof-row">
-        <div class="label">8+ yrs B2B PM<span>platforms &amp; partner ecosystems</span></div>
-        <p>Product management across SaaS platforms, integrations, and OEM partnerships. The craft — vision, ruthless prioritization, cross-functional delivery, KPI ownership — is the same craft this role needs; I'd bring it to a consumer surface.</p>
-      </div>
-      <div class="proof-row">
-        <div class="label">Frontline years<span>retail &amp; service</span></div>
-        <p>Before PM, years serving customers face to face. It's where I learned that the best product insight comes from watching people, not surveys alone — and why a family-products company feels like home.</p>
-      </div>
-    </div>
-  </div>
-</section>
+  /* calendar view toggle */
+  function showDay(){$("#calWeek").style.display="none";$("#calDay").style.display="block";}
+  function showWeek(){$("#calDay").style.display="none";$("#calWeek").style.display="block";}
+  $$('[data-open="day"]').forEach(function(b){b.addEventListener("click",showDay);});
+  $("#toWeekBtn").addEventListener("click",showWeek);
 
-<section id="close">
-  <div class="wrap">
-    <div class="close">
-      <h2>I'd love to build the next member of the family.</h2>
-      <p>If this take resonates — or if you'd push back on it — I'd genuinely enjoy the conversation.</p>
-      <a class="btn primary" href="https://www.linkedin.com/in/mallory-odom" target="_blank" rel="noopener">Let's talk →</a>
-    </div>
-  </div>
-</section>
+  /* Mema taps "I'm up" on Buddy */
+  $("#imUpBtn").addEventListener("click",function(){
+    if(state.up)return;state.up=true;
+    var ci=$("#memaCheckin");ci.classList.add("done");
+    ci.innerHTML='<div class="q">☀️ You\u2019re all set — the family knows you\u2019re up</div>';
+    var ms=$("#memaStatus");ms.classList.add("up");$("#memaStatusTxt").textContent="✓ Mema\u2019s up — "+STAMP;
+    var ps=$("#phoneStatus");ps.textContent="Up at "+STAMP+" ✓";ps.classList.add("ok");
+    calToast("☀️","<b>Mema\u2019s up</b> — up and about · "+STAMP,"sage");
+    pushBanner("☀️","Mema\u2019s up","She\u2019s up and about this morning.","Skylight · now");
+    feedAdd("☀️","<b>Mema\u2019s up</b> — up and about",STAMP+" · via Buddy Sr","sage");
+  });
 
-<footer>
-  <div class="wrap">
-    Mallory Odom · <a href="https://modom1123.github.io/portfolio/">full portfolio</a> · a working proposal, written independently and not affiliated with Skylight
-  </div>
-</footer>
+  /* Mema's tasks mirror to calendar */
+  $$("#memaTasks .task").forEach(function(task){
+    task.addEventListener("click",function(){
+      if(task.getAttribute("data-task")==="appt"){openRide();return;}
+      var key=task.getAttribute("data-task");var nowDone=!state.tasks[key];
+      state.tasks[key]=nowDone;task.classList.toggle("done",nowDone);
+      var mirror=$('.evt[data-mirror="'+key+'"]');if(mirror)mirror.classList.toggle("done-e",nowDone);
+      if(nowDone){var name=$(".tname",task).textContent;
+        calToast("✓","<b>"+name+"</b> done · Mema","sage");
+        feedAdd("✓","<b>"+name+"</b> — done","Mema · "+STAMP);}
+    });
+  });
 
+  /* visit form — shared submit */
+  function submitVisit(rating,acts,source){
+    var actTxt=acts.length?acts.join(", "):"a visit";
+    var icon=rating==="A bit off"?"🩺":"🏠";
+    calToast(icon,"<b>Visit logged</b> — "+rating+" · "+actTxt,rating==="A bit off"?"gold":"");
+    pushBanner(icon,"Visit logged","Sarah saw Mema — "+rating+".",source);
+    feedAdd(icon,"<b>Sarah logged a visit</b> — "+rating,actTxt+" · "+STAMP,rating==="A bit off"?"gold":"sky");
+  }
+
+  /* phone inline visit form */
+  $$("#vrates .vp").forEach(function(p){p.addEventListener("click",function(){
+    $$("#vrates .vp").forEach(function(x){x.classList.remove("on");});p.classList.add("on");state.visitRate=p.getAttribute("data-rate");
+  });});
+  $$("#vchips .vc").forEach(function(c){c.addEventListener("click",function(){
+    c.classList.toggle("on");state.visitActs[c.getAttribute("data-act")]=c.classList.contains("on");
+  });});
+  $("#visitSave").addEventListener("click",function(){
+    if(!state.visitRate){var f=$("#visitForm");f.style.animation="bloom .3s ease";setTimeout(function(){f.style.animation="";},300);
+      $(".vsub",f).textContent="Please pick how it went first.";$(".vsub",f).style.color="var(--marigold-deep)";return;}
+    var acts=Object.keys(state.visitActs).filter(function(k){return state.visitActs[k];});
+    submitVisit(state.visitRate,acts,"via the app");
+    var host=$("#visitForm");
+    host.outerHTML='<div class="vdone"><div class="ic">✓</div><div class="t">Visit saved</div><div class="m">The family just got the update.</div></div>';
+  });
+
+  /* calendar "log a visit" modal */
+  function openVisit(){$("#visitScrim").classList.add("open");}
+  function closeVisit(){$("#visitScrim").classList.remove("open");}
+  $("#logVisitBtn").addEventListener("click",openVisit);
+  $("#mvCancel").addEventListener("click",closeVisit);
+  $("#visitScrim").addEventListener("click",function(e){if(e.target===this)closeVisit();});
+  $$("#mvrates .mvp").forEach(function(p){p.addEventListener("click",function(){
+    $$("#mvrates .mvp").forEach(function(x){x.classList.remove("on");});p.classList.add("on");state.mvRate=p.getAttribute("data-rate");
+  });});
+  $$("#mvchips .mvc").forEach(function(c){c.addEventListener("click",function(){
+    c.classList.toggle("on");state.mvActs[c.getAttribute("data-act")]=c.classList.contains("on");
+  });});
+  $("#mvSave").addEventListener("click",function(){
+    if(!state.mvRate){$("#mvWarn").classList.add("show");return;}
+    $("#mvWarn").classList.remove("show");
+    var acts=Object.keys(state.mvActs).filter(function(k){return state.mvActs[k];});
+    submitVisit(state.mvRate,acts,"via the Calendar");closeVisit();
+  });
+
+  /* ride / assign-a-need modal */
+  function openRide(){$("#scrim").classList.add("open");}
+  function closeRide(){$("#scrim").classList.remove("open");}
+  $("#askBtn").addEventListener("click",openRide);
+  $("#cancelBtn").addEventListener("click",closeRide);
+  $("#scrim").addEventListener("click",function(e){if(e.target===this)closeRide();});
+  $$("#recips .recip").forEach(function(r){r.addEventListener("click",function(){r.classList.toggle("on");$(".rc",r).textContent=r.classList.contains("on")?"✓":"";});});
+  $$("#channels .chan").forEach(function(c){c.addEventListener("click",function(){c.classList.toggle("on");$(".ck",c).textContent=c.classList.contains("on")?"✓":"";});});
+  $("#sendBtn").addEventListener("click",function(){
+    var recips=$$("#recips .recip.on").map(function(r){return r.getAttribute("data-recip");});
+    var chans=$$("#channels .chan.on").map(function(c){return c.getAttribute("data-chan");});
+    if(recips.length===0||chans.length===0){$("#warn").classList.add("show");return;}
+    $("#warn").classList.remove("show");state.asked=true;closeRide();
+    var ab=$("#askBtn");ab.textContent="Asked ✓";ab.classList.add("sent");ab.disabled=true;
+    $("#apptEvt").querySelector(".who").textContent="· ride requested";
+    calToast("🚗","<b>Ride request sent</b> to "+recips.join(" & ")+" · via "+chans.join(", "),"gold");
+    pushBanner("🚗","Ride request sent","Asked "+recips.join(" & ")+" to take Mema Tuesday.",chans.join(" · "));
+    feedAdd("🚗","<b>You asked "+recips.join(" & ")+"</b> for a ride — Dr. Nguyen, Tue 2:00 PM","Sent via "+chans.join(", "),"gold");
+    chans.forEach(function(ch){
+      var icon=ch==="Text"?"💬":ch==="Email"?"✉️":ch==="Calendar"?"📅":"📱";
+      var how=ch==="Text"?"Text message sent":ch==="Email"?"Email sent":ch==="Calendar"?"Tentative calendar hold added":"Push sent";
+      feedAdd(icon,how+" to "+recips.join(" & "),"Channel: "+ch);
+    });
+  });
+
+  $("#resetBtn").addEventListener("click",function(){location.reload();});
+})();
+</script>
 </body>
 </html>
