@@ -28,7 +28,9 @@
   button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
   .page{max-width:1200px;margin:0 auto;padding:30px 20px 70px;}
 
-  .masthead{margin-bottom:22px;}
+  .back-bar{margin-bottom:18px;}
+  .back-bar a{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:800;color:var(--sky-deep);background:var(--sky-soft);border:1px solid var(--sky);padding:8px 16px;border-radius:999px;text-decoration:none;transition:background .15s ease;}
+  .back-bar a:hover{background:#dae7fa;}
   .kicker{font-size:12.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--sky);}
   .masthead h1{font-size:clamp(26px,4vw,38px);margin-top:8px;color:var(--sky-deep);}
   .masthead p{margin-top:10px;color:var(--ink-soft);max-width:76ch;font-size:16px;}
@@ -196,10 +198,10 @@
 
   /* ===== Buddy Sr (matches real Buddy) ===== */
   .buddy-unit{display:flex;flex-direction:column;align-items:center;}
-  .buddy-wrap-outer{position:relative;padding-top:16px;}
+  .buddy-wrap-outer{position:relative;padding-top:18px;}
   /* Buddy Sr — wide landscape rectangle matching real Buddy proportions (~16:10) */
   .buddy{position:relative;width:320px;height:210px;background:var(--buddy);border-radius:32px / 36px;padding:14px 16px 14px;box-shadow:var(--shadow);}
-  .buddy-dome{position:absolute;top:-13px;right:72px;width:44px;height:30px;background:var(--buddy-dome);border-radius:50% 50% 44% 44% / 58% 58% 42% 42%;box-shadow:inset 0 -3px 5px rgba(0,0,0,.08),var(--shadow-soft);z-index:2;}
+  .buddy-dome{position:absolute;top:4px;right:88px;width:44px;height:30px;background:var(--buddy-dome);border-radius:50% 50% 44% 44% / 58% 58% 42% 42%;box-shadow:inset 0 -3px 5px rgba(0,0,0,.08),var(--shadow-soft);z-index:2;}
   .buddy-ctrls{position:absolute;top:10px;left:28px;display:flex;gap:5px;align-items:center;}
   .buddy-ctrls i{width:14px;height:5px;border-radius:3px;background:rgba(255,255,255,.55);}
   .buddy-ctrls i.dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.4);}
@@ -318,6 +320,8 @@
 </head>
 <body>
 <div class="page">
+
+  <div class="back-bar"><a href="index.html">← Back to proposal</a></div>
 
   <div class="masthead">
     <p class="kicker">Buddy Sr · a working prototype</p>
@@ -473,8 +477,8 @@
       <div class="dev">
         <div class="buddy-unit">
           <div class="buddy-wrap-outer">
+            <div class="buddy-dome"></div>
             <div class="buddy">
-              <div class="buddy-dome"></div>
               <div class="buddy-ctrls"><i></i><i></i><i class="dot"></i></div>
               <div class="buddy-screen">
                 <div class="b-topbar"><div class="b-ava">M</div><div class="b-time">9:12 AM · Sun, Jun 8</div><div class="b-wx">72° ☀️</div></div>
@@ -495,8 +499,8 @@
                   <div class="fm-sub">Can't find something? Ask the care team.</div>
                 </div>
                 <div class="findmy" id="qrTile" style="background:var(--lagoon-soft);border-color:var(--lagoon);margin-top:7px;">
-                  <div class="fm-top"><span class="fm-icon">📲</span><span class="fm-title" style="color:var(--lagoon);">Get the app</span></div>
-                  <div class="fm-sub">Scan to download Skylight on your phone.</div>
+                  <div class="fm-top"><span class="fm-icon">📋</span><span class="fm-title" style="color:var(--lagoon);">Log a check-in</span></div>
+                  <div class="fm-sub">Scan to open the visit form in your browser.</div>
                 </div>
               </div>
             </div>
@@ -538,8 +542,8 @@
 <div class="scrim" id="qrScrim">
   <div class="modal" role="dialog" aria-modal="true">
     <div class="qr-modal-inner">
-      <h3>Download the Skylight app</h3>
-      <p>Scan with your phone's camera to get the app and stay connected with Mema.</p>
+      <h3>Log a check-in with Mema</h3>
+      <p>Scan to open the visit form in your browser — how she's doing, what you did, anything the family should know. Takes about a minute.</p>
       <div class="qr-box">
         <svg viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
           <rect width="21" height="21" fill="#fff"/>
